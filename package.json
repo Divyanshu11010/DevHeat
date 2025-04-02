@@ -1,0 +1,17 @@
+{
+  "name": "devheat",
+  "version": "1.0.0",
+  "description": "A solution for candidate analysis",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon run ./src/server.js"
+  },
+  "author": "Divyanshu",
+  "license": "MIT",
+  "dependencies": {
+    "leetcode-query": "^1.2.3",
+    "playwright": "^1.51.1"
+  }
+}
