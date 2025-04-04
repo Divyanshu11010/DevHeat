@@ -11,7 +11,9 @@
   "author": "Divyanshu",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "leetcode-query": "^1.2.3",
-    "playwright": "^1.51.1"
+    "playwright": "^1.51.1",
+    "unipile-node-sdk": "^1.9.2"
   }
 }

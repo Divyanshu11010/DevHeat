@@ -1,6 +1,6 @@
 //! Leetcode Data
 const baseURL = "https://alfa-leetcode-api.onrender.com";
-async function fetchData(username) {
+async function fetchDataLC(username) {
     try {
         const _solvedProblem = await fetch(`${baseURL}/${username}/solved`);
         const _skills = await fetch(`${baseURL}/skillStats/${username}`);
@@ -35,4 +35,4 @@ async function fetchData(username) {
     }
 }
 
-export default fetchData;
+export default fetchDataLC;
