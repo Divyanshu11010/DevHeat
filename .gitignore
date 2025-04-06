@@ -1,4 +1,15 @@
-node_modules
-*plan.md
-*test.js
+# Ignore node modules
+node_modules/
+
+# Ignore files starting with 'test'
+test*
+
+# Ignore markdown files
+*.md
+
+# Ignore environment files
 *.env
+
+# Specific files
+gpt.js
+req.http

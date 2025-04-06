@@ -1,8 +1,14 @@
-import fetchDataLC from "./utilities/leetcode.js";
-import fetchDataCC from "./utilities/codechef.js";
-import fetchDataCF from "./utilities/codeforces.js";
-import fetchDataGitHub from "./utilities/github.js";
-import getUnipileProfile from "./utilities/linkedin.js";
+import express from "express";
+import endpoints from "./routes/endpoints.js";
+import cors from "cors";
 
-const res = await getUnipileProfile("divyanshu-vishwakarma");
-console.dir(res, {depth : null});
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+app.use("/api", endpoints);
+
+app.listen(5000, () => {
+    console.log("Server is running on port : 5000");
+});
