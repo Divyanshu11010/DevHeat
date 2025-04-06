@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import Loader from "../components/Loader.jsx"; // adjust the path if needed
+import Loader from "../components/Loader.jsx";
 import logo from "../assets/logo.png"
 
 const backendURL = import.meta.env.VITE_BACKEND_URL;
