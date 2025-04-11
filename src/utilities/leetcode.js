@@ -19,13 +19,13 @@ async function fetchDataLC(username) {
         const badges = await _badges.json();
         const contest = await _contest.json();
         const lang = await _lang.json();
-        
+
         // combine all the info
         const data = {
             solvedProblem,
-            skills, 
+            skills,
             badges,
-            contest, 
+            contest,
             lang
         }
 

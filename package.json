@@ -11,6 +11,7 @@
   "author": "Divyanshu",
   "license": "MIT",
   "dependencies": {
+    "@google/genai": "^0.8.0",
     "@huggingface/inference": "^3.6.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",

@@ -34,10 +34,10 @@ function Home() {
 
             const result = await response.json();
             const output = result.analysis;
-            console.log(result)
+            const aggregatedData = result.aggregatedData;
             
             /// Navigate to response page with data
-            navigate('/response', { state: { output } });
+            navigate('/response', { state: { output, aggregatedData} });
         } catch (error) {
             console.error('Error:', error);
             alert("Something went wrong while analyzing. Please try again.");

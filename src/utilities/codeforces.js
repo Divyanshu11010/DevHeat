@@ -1,4 +1,4 @@
-//! Codechef
+//! Codeforces
 const baseURL = "https://codeforces.com/api";
 async function fetchDataCF(username) {
     try {

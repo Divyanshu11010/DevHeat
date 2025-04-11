@@ -3,6 +3,7 @@ node_modules/
 
 # Ignore files starting with 'test'
 test*
+plan*
 
 # Ignore markdown files
 *.md
