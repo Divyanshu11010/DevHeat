@@ -39,6 +39,14 @@ function Landing() {
                     <h3 className="text-xl font-bold text-green-600 dark:text-green-400 mb-2">Career Suggestions</h3>
                     <p className="text-gray-700 dark:text-gray-300">Receive personalized career roadmap suggestions based on real trends.</p>
                 </div>
+                <div className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
+                    <h3 className="text-xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">Recruiter Readiness Score</h3>
+                    <p className="text-gray-700 dark:text-gray-300">Get an overall score indicating your preparedness for recruiter outreach, based on various digital platforms.</p>
+                </div>
+                <div className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
+                    <h3 className="text-xl font-bold text-yellow-600 dark:text-yellow-400 mb-2">Dashboard of Different Platforms</h3>
+                    <p className="text-gray-700 dark:text-gray-300">View a comprehensive dashboard that consolidates data from GitHub, LinkedIn, and other coding platforms.</p>
+                </div>
             </div>
         </div>
     );

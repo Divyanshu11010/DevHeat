@@ -6,15 +6,16 @@ import Codechef from '../components/Codechef';
 import Codeforces from '../components/Codeforces.jsx';
 import Github from '../components/Github';
 import Linkedin from '../components/Linkedin';
+import BadRequest from '../components/BadRequest.jsx';
 import { useLocation } from 'react-router-dom';
 
 function Response() {
-    const [selectedTab, setSelectedTab] = useState('overview');
+    const [selectedTab, setSelectedTab] = useState('leetcode');
 
     const location = useLocation();
     const analysis = location.state?.output || '';
     const dashboardData = location.state?.aggregatedData || '';
-
+    
     const handleNavSelect = (tab) => {
         setSelectedTab(tab);
     };
@@ -22,20 +23,42 @@ function Response() {
     const renderContent = () => {
         switch (selectedTab) {
             case 'leetcode':
-                return <Leetcode data={dashboardData.leetcode} />;
+                return dashboardData.leetcode ? (
+                    <Leetcode data={dashboardData.leetcode} />
+                ) : (
+                    <BadRequest />
+                );
             case 'codechef':
-                return <Codechef data={dashboardData.codechef} />;
+                return dashboardData.codechef ? (
+                    <Codechef data={dashboardData.codechef} />
+                ) : (
+                    <BadRequest />
+                );
             case 'codeforces':
-                return <Codeforces data={dashboardData.codeforces} />;
+                return dashboardData.codeforces ? (
+                    <Codeforces data={dashboardData.codeforces} />
+                ) : (
+                    <BadRequest />
+                );
             case 'github':
-                return <Github data={dashboardData.github} />;
+                return dashboardData.github ? (
+                    <Github data={dashboardData.github} />
+                ) : (
+                    <BadRequest />
+                );
             case 'linkedin':
-                return <Linkedin data={dashboardData.linkedin} />;
+                return dashboardData.linkedin ? (
+                    <Linkedin data={dashboardData.linkedin} />
+                ) : (
+                    <BadRequest />
+                );
             case 'overview':
+                return analysis ? <Overview data={analysis} /> : <BadRequest />;
             default:
-                return <Overview data={analysis} />;
+                return analysis ? <Overview data={analysis} /> : <BadRequest />;
         }
     };
+
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 flex flex-col">
