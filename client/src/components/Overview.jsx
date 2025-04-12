@@ -106,8 +106,8 @@ function Overview({ data }) {
         {/* Recruiter Readiness Score */}
         <Card title="Recruiter Readiness Score">
           <div className="flex flex-col items-center">
-            <div className="w-full h-64 mb-4 flex items-center justify-center">
-              <div className="w-32 h-32">
+            <div className="w-full h-92 mb-4 flex items-center justify-center">
+              <div className="w-60 h-60">
                 <CircularProgressbar
                   value={analysis.Recruiter_Readiness_Score.score}
                   maxValue={100}
