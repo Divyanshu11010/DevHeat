@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
-body {
-    background-color: #121A2A;
+html body {
+    background-color: #121A2A !important;
     color: #d1d1d1;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     scroll-behavior: smooth;
 }
+
 
 a {
     color: #a0c4ff;
@@ -18,7 +19,12 @@ a:hover {
     text-decoration: underline;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: #f1f1f1;
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
