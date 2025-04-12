@@ -61,7 +61,7 @@ function Response() {
 
     return (
         <div className="min-h-screen bg-gray-900 text-gray-200 flex flex-col">
-            <Navbar onNavSelect={handleNavSelect} />
+            <Navbar onNavSelect={handleNavSelect} selectedNavKey={selectedTab} />
             <div className="flex-grow flex flex-col items-center px-4 py-8">
                 {renderContent()}
             </div>

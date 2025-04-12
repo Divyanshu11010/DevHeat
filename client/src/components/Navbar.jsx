@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
-function Navbar({ onNavSelect }) {
+function Navbar({ onNavSelect, selectedNavKey }) {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
@@ -16,20 +16,28 @@ function Navbar({ onNavSelect }) {
     { label: 'Linkedin', key: 'linkedin' },
   ];
 
-  const renderLink = ({ label, key }, isMobile = false) => (
-    <a
-      key={key}
-      onClick={() => {
-        onNavSelect(key);
-        if (isMobile) toggleMobileMenu();
-      }}
-      className={`cursor-pointer ${
-        label === 'Overview' ? 'text-blue-400 font-semibold' : 'text-gray-300'
-      } hover:text-blue-300 block ${isMobile ? 'w-full text-left' : ''} text-lg transition-colors duration-200`}
-    >
-      {label}
-    </a>
-  );
+  const renderLink = ({ label, key }, isMobile = false) => {
+    const isActive = selectedNavKey === key;
+
+    return (
+      <a
+        key={key}
+        onClick={() => {
+          onNavSelect(key);
+          if (isMobile) toggleMobileMenu();
+        }}
+        className={`cursor-pointer block text-lg transition-colors duration-200 
+          ${isMobile ? 'w-full text-left' : ''}
+          ${
+            isActive
+              ? 'text-blue-400 font-semibold border border-blue-400 rounded-xl px-3 py-1 bg-gray-800 shadow-md shadow-blue-400/30'
+              : 'text-gray-300 hover:text-blue-300'
+          }`}
+      >
+        {label}
+      </a>
+    );
+  };
 
   return (
     <nav className="w-full bg-gray-900 border-b border-gray-700 shadow-lg">
