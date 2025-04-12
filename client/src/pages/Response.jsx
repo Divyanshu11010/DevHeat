@@ -10,7 +10,7 @@ import BadRequest from '../components/BadRequest.jsx';
 import { useLocation } from 'react-router-dom';
 
 function Response() {
-    const [selectedTab, setSelectedTab] = useState('leetcode');
+    const [selectedTab, setSelectedTab] = useState('overview');
 
     const location = useLocation();
     const analysis = location.state?.output || '';
