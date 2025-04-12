@@ -50,7 +50,7 @@ function Home() {
         <div className="min-h-screen bg-gray-900 text-white">
             {loading && <Loader />}
 
-            <header className="flex items-center justify-between px-6 shadow bg-white">
+            <header className="flex items-center justify-between px-6 shadow">
                 <Link to="/" className="flex items-center space-x-2">
                     <img
                         src={logo}
