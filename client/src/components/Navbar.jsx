@@ -23,15 +23,16 @@ function Navbar({ onNavSelect }) {
         onNavSelect(key);
         if (isMobile) toggleMobileMenu();
       }}
-      className={`cursor-pointer ${label === 'Overview' ? 'text-blue-400 font-semibold' : 'text-gray-300'
-        } hover:text-blue-300 block ${isMobile ? 'w-full text-left' : ''} text-lg transition-colors duration-200`}
+      className={`cursor-pointer ${
+        label === 'Overview' ? 'text-blue-400 font-semibold' : 'text-gray-300'
+      } hover:text-blue-300 block ${isMobile ? 'w-full text-left' : ''} text-lg transition-colors duration-200`}
     >
       {label}
     </a>
   );
 
   return (
-    <nav className="w-full border-b border-gray-700 shadow-l">
+    <nav className="w-full bg-gray-900 border-b border-gray-700 shadow-lg">
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Left side: Logo + Back to Analyze */}
         <div className="flex items-center space-x-3">
@@ -82,7 +83,7 @@ function Navbar({ onNavSelect }) {
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden border-t border-gray-700">
+        <div className="lg:hidden border-t border-gray-700 bg-gray-900">
           <div className="px-6 py-4 space-y-2">
             {navLinks.map((link) => renderLink(link, true))}
           </div>

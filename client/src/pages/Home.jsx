@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Loader from "../components/Loader.jsx";
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.png";
 
 const backendURL = import.meta.env.VITE_BACKEND_URL;
 
@@ -47,21 +47,21 @@ function Home() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white">
+        <div className="min-h-screen bg-gray-900 text-white">
             {loading && <Loader />}
 
-            <header className="flex items-center justify-between px-6 shadow bg-white dark:bg-gray-800">
+            <header className="flex items-center justify-between px-6 shadow bg-white">
                 <Link to="/" className="flex items-center space-x-2">
                     <img
                         src={logo}
                         alt="Logo"
                         className="h-20 w-20 rounded-full"
                     />
-                    <span className="text-xl font-bold text-blue-600 dark:text-blue-400">
+                    <span className="text-xl font-bold text-blue-600">
                         ProfileAnalyzer
                     </span>
                 </Link>
-                <span className="text-xl text-gray-600 dark:text-gray-400 hidden sm:block">
+                <span className="text-xl text-gray-400 hidden sm:block">
                     Elevate your digital presence 🚀
                 </span>
             </header>
@@ -75,7 +75,7 @@ function Home() {
                     method="post"
                     className="w-full sm:max-w-sm md:max-w-md p-6 sm:p-6 md:p-8 bg-gray-800 rounded-2xl shadow-md space-y-5"
                 >
-                    <h2 className="text-2xl sm:text-3xl font-bold text-center text-white">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-center">
                         Enter Usernames
                     </h2>
 

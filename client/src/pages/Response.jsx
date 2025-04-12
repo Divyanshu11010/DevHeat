@@ -15,7 +15,7 @@ function Response() {
     const location = useLocation();
     const analysis = location.state?.output || '';
     const dashboardData = location.state?.aggregatedData || '';
-    
+
     const handleNavSelect = (tab) => {
         setSelectedTab(tab);
     };
@@ -59,9 +59,8 @@ function Response() {
         }
     };
 
-
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 flex flex-col">
+        <div className="min-h-screen bg-gray-900 text-gray-200 flex flex-col">
             <Navbar onNavSelect={handleNavSelect} />
             <div className="flex-grow flex flex-col items-center px-4 py-8">
                 {renderContent()}
