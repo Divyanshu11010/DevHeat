@@ -15,10 +15,11 @@ const LeetCodeStatsDisplay = ({ data }) => {
   const contestTopPercentageProgress = contest.contestTopPercentage;
 
   return (
-    <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-6">
+    <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 sm:p-6">
+
       {/* Contest Rating */}
-      <div className="shadow rounded p-6 flex flex-col items-center justify-center">
-        <h2 className="text-xl font-semibold mb-4">Contest Rating</h2>
+      <div className=" shadow-md rounded-2xl p-6 flex flex-col items-center text-center">
+        <h2 className="text-lg font-semibold mb-4">Contest Rating</h2>
         <div className="w-24 h-24">
           <CircularProgressbar
             value={contestRatingProgress}
@@ -26,14 +27,15 @@ const LeetCodeStatsDisplay = ({ data }) => {
             styles={buildStyles({
               pathColor: "#1E7D22",
               textColor: "#1E7D22",
+              trailColor: "#d1fae5",
             })}
           />
         </div>
       </div>
 
       {/* Contest Top Percentage */}
-      <div className="shadow rounded p-6 flex flex-col items-center justify-center">
-        <h2 className="text-xl font-semibold mb-4">Contest Top Percentage</h2>
+      <div className=" shadow-md rounded-2xl p-6 flex flex-col items-center text-center">
+        <h2 className="text-lg font-semibold mb-4">Top Percentage</h2>
         <div className="w-24 h-24">
           <CircularProgressbar
             value={contestTopPercentageProgress}
@@ -41,50 +43,51 @@ const LeetCodeStatsDisplay = ({ data }) => {
             styles={buildStyles({
               pathColor: "#f59e0b",
               textColor: "#f59e0b",
+              trailColor: "#fef3c7",
             })}
           />
         </div>
       </div>
 
       {/* Contest Participation */}
-      <div className="shadow rounded p-6">
-        <h2 className="text-xl font-semibold mb-4 text-center">Contest Participation</h2>
-        <div className="space-y-4">
+      <div className=" shadow-md rounded-2xl p-6">
+        <h2 className="text-lg font-semibold mb-4 text-center">Contest Participation</h2>
+        <div className="space-y-3 text-sm text-gray-600">
           <div>
-            <p className="text-sm font-medium">Total Contests Attended</p>
-            <p className="text-sm">{contest.contestAttend}</p>
+            <p className="font-medium">Contests Attended</p>
+            <p>{contest.contestAttend}</p>
           </div>
           <div>
-            <p className="text-sm font-medium">Contest Global Rank</p>
-            <p className="text-sm">#{contest.contestGlobalRanking}</p>
+            <p className="font-medium">Global Rank</p>
+            <p>#{contest.contestGlobalRanking}</p>
           </div>
         </div>
       </div>
 
       {/* Badges */}
-      <div className="shadow rounded p-6 col-span-1 md:col-span-2 xl:col-span-3">
-        <h2 className="text-xl font-semibold mb-4">Badges</h2>
+      <div className=" shadow-md rounded-2xl p-6 col-span-1 sm:col-span-2 lg:col-span-3">
+        <h2 className="text-lg font-semibold mb-4">Badges</h2>
         <div className="flex flex-wrap gap-4">
           {badges.badges.map((badge, index) => (
             <div
               key={index}
-              className="bg-gray-200 text-gray-800 px-4 py-2 rounded flex items-center gap-2"
+              className="bg-gray-100 text-gray-800 px-4 py-2 rounded-xl flex items-center gap-2"
             >
               <img src={badge.icon} alt={badge.displayName} className="w-8 h-8" />
-              <span>{badge.displayName}</span>
+              <span className="text-sm">{badge.displayName}</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* Used Languages */}
-      <div className="shadow rounded p-6 col-span-1 md:col-span-2 xl:col-span-3">
-        <h2 className="text-xl font-semibold mb-4">Used Languages</h2>
-        <div className="flex flex-wrap gap-4">
+      <div className=" shadow-md rounded-2xl p-6 col-span-1 sm:col-span-2 lg:col-span-3">
+        <h2 className="text-lg font-semibold mb-4">Used Languages</h2>
+        <div className="flex flex-wrap gap-3">
           {lang.matchedUser.languageProblemCount.map((langItem, index) => (
             <div
               key={index}
-              className="bg-gray-200 text-gray-800 px-4 py-2 rounded text-sm"
+              className="bg-gray-100 text-gray-800 px-3 py-1.5 rounded-xl text-sm"
             >
               {langItem.languageName} — {langItem.problemsSolved} problems
             </div>
@@ -93,15 +96,17 @@ const LeetCodeStatsDisplay = ({ data }) => {
       </div>
 
       {/* Skills */}
-      <div className="shadow rounded p-6 col-span-1 md:col-span-2 xl:col-span-3">
-        <h2 className="text-xl font-semibold mb-4">Skills</h2>
-        <div className="space-y-4">
+      <div className=" shadow-md rounded-2xl p-6 col-span-1 sm:col-span-2 lg:col-span-3">
+        <h2 className="text-lg font-semibold mb-4">Skills</h2>
+        <div className="space-y-4 text-sm">
           {Object.keys(skills.data.matchedUser.tagProblemCounts).map((level, index) => (
             <div key={index}>
-              <p className="text-sm font-medium">{level.charAt(0).toUpperCase() + level.slice(1)}</p>
-              <ul className="list-disc pl-5">
+              <p className="font-medium mb-1">
+                {level.charAt(0).toUpperCase() + level.slice(1)}
+              </p>
+              <ul className="list-disc pl-5 space-y-1">
                 {skills.data.matchedUser.tagProblemCounts[level].map((skill, skillIndex) => (
-                  <li key={skillIndex} className="text-sm">
+                  <li key={skillIndex}>
                     {skill.tagName} — {skill.problemsSolved} problems
                   </li>
                 ))}
@@ -112,24 +117,24 @@ const LeetCodeStatsDisplay = ({ data }) => {
       </div>
 
       {/* Solved Problems */}
-      <div className="shadow rounded p-6">
-        <h2 className="text-xl font-semibold mb-4">Solved Problems</h2>
-        <div className="space-y-4">
+      <div className=" shadow-md rounded-2xl p-6">
+        <h2 className="text-lg font-semibold mb-4 text-center">Solved Problems</h2>
+        <div className="space-y-3 text-sm">
           <div>
-            <p className="text-sm font-medium">Total Solved Problems</p>
-            <p className="text-sm">{solvedProblem.solvedProblem}</p>
+            <p className="font-medium">Total Solved</p>
+            <p>{solvedProblem.solvedProblem}</p>
           </div>
           <div>
-            <p className="text-sm font-medium">Easy Solved</p>
-            <p className="text-sm">{solvedProblem.easySolved}</p>
+            <p className="font-medium">Easy</p>
+            <p>{solvedProblem.easySolved}</p>
           </div>
           <div>
-            <p className="text-sm font-medium">Medium Solved</p>
-            <p className="text-sm">{solvedProblem.mediumSolved}</p>
+            <p className="font-medium">Medium</p>
+            <p>{solvedProblem.mediumSolved}</p>
           </div>
           <div>
-            <p className="text-sm font-medium">Hard Solved</p>
-            <p className="text-sm">{solvedProblem.hardSolved}</p>
+            <p className="font-medium">Hard</p>
+            <p>{solvedProblem.hardSolved}</p>
           </div>
         </div>
       </div>

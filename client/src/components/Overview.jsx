@@ -17,15 +17,15 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend,
 
 function Card({ title, children }) {
   return (
-    <div className="bg-gray-800 shadow-md rounded-lg p-6">
-      <h2 className="text-2xl font-bold mb-4 text-white">{title}</h2>
+    <div className="bg-gray-800 shadow-md rounded-2xl p-5 md:p-6 transition-all hover:shadow-lg">
+      <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-white">{title}</h2>
       <div>{children}</div>
     </div>
   );
 }
 
 function Overview({ data }) {
-  const analysis = data
+  const analysis = data;
   const peerComparisonData = {
     labels: Object.keys(analysis.Peer_Comparison),
     datasets: [
@@ -58,23 +58,21 @@ function Overview({ data }) {
       },
     },
     scales: {
-      x: {
-        ticks: { color: '#d1d1d1' },
-      },
-      y: {
-        ticks: { color: '#d1d1d1' },
-      },
+      x: { ticks: { color: '#d1d1d1' } },
+      y: { ticks: { color: '#d1d1d1' } },
     },
   };
 
   return (
-    <div className="min-h-screen bg-[#121A2A] p-6">
-      <h1 className="text-4xl font-bold text-center mb-10 text-white">Candidate Analysis Overview</h1>
-      <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
+    <div className="min-h-screen bg-[#121A2A] px-4 sm:px-6 lg:px-12 py-10">
+      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-10 text-white">
+        Candidate Analysis Overview
+      </h1>
+      <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
         {/* Profile Scoring */}
         <Card title="Profile Scoring">
           <div className="flex flex-col items-center">
-            <div className="w-32 h-32 mb-4">
+            <div className="w-28 sm:w-32 h-28 sm:h-32 mb-4">
               <CircularProgressbar
                 value={analysis.Profile_Scoring.score}
                 maxValue={100}
@@ -87,16 +85,16 @@ function Overview({ data }) {
               />
             </div>
             <div className="w-full">
-              <h3 className="text-xl font-semibold mb-2 text-white">Skills</h3>
-              <ul className="list-disc pl-5">
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">Skills</h3>
+              <ul className="list-disc pl-5 space-y-1">
                 {analysis.Profile_Scoring.skills.map((skill, index) => (
-                  <li key={index} className="text-gray-300">{skill}</li>
+                  <li key={index} className="text-gray-300 text-sm sm:text-base">{skill}</li>
                 ))}
               </ul>
-              <h3 className="text-xl font-semibold mt-4 mb-2 text-white">Strengths</h3>
-              <ul className="list-disc pl-5">
+              <h3 className="text-lg sm:text-xl font-semibold mt-4 mb-2 text-white">Strengths</h3>
+              <ul className="list-disc pl-5 space-y-1">
                 {analysis.Profile_Scoring.strengths.map((strength, index) => (
-                  <li key={index} className="text-gray-300">{strength}</li>
+                  <li key={index} className="text-gray-300 text-sm sm:text-base">{strength}</li>
                 ))}
               </ul>
             </div>
@@ -105,20 +103,18 @@ function Overview({ data }) {
 
         {/* Recruiter Readiness Score */}
         <Card title="Recruiter Readiness Score">
-          <div className="flex flex-col items-center">
-            <div className="w-full h-92 mb-4 flex items-center justify-center">
-              <div className="w-60 h-60">
-                <CircularProgressbar
-                  value={analysis.Recruiter_Readiness_Score.score}
-                  maxValue={100}
-                  text={`${analysis.Recruiter_Readiness_Score.score}%`}
-                  styles={buildStyles({
-                    textColor: '#d1d1d1',
-                    pathColor: '#10B981',
-                    trailColor: '#374151',
-                  })}
-                />
-              </div>
+          <div className="flex flex-col items-center justify-center">
+            <div className="w-44 h-44 mb-4">
+              <CircularProgressbar
+                value={analysis.Recruiter_Readiness_Score.score}
+                maxValue={100}
+                text={`${analysis.Recruiter_Readiness_Score.score}%`}
+                styles={buildStyles({
+                  textColor: '#d1d1d1',
+                  pathColor: '#10B981',
+                  trailColor: '#374151',
+                })}
+              />
             </div>
             <p className="text-lg text-gray-300">
               <strong>Score: </strong> {analysis.Recruiter_Readiness_Score.score}
@@ -128,31 +124,34 @@ function Overview({ data }) {
 
         {/* Insight Generation */}
         <Card title="Insight Generation">
-          <p className="text-gray-300">{analysis.Insight_Generation}</p>
+          <p className="text-gray-300 text-sm sm:text-base leading-relaxed">{analysis.Insight_Generation}</p>
         </Card>
 
         {/* Personalized Career Pathway Suggestions */}
         <Card title="Personalized Career Pathway Suggestions">
-          <p className="text-gray-300">{analysis.Personalized_Career_Suggestions}</p>
+          <p className="text-gray-300 text-sm sm:text-base leading-relaxed">{analysis.Personalized_Career_Suggestions}</p>
         </Card>
 
         {/* Peer Comparison */}
         <Card title="Peer Comparison">
-          <div className="w-full h-64 mb-4">
+          <div className="w-full h-64 sm:h-72 mb-6">
             <Bar
               data={peerComparisonData}
               options={{
                 ...chartOptions,
                 plugins: {
                   ...chartOptions.plugins,
-                  title: { ...chartOptions.plugins.title, text: 'Peer Comparison' },
+                  title: {
+                    ...chartOptions.plugins.title,
+                    text: 'Peer Comparison',
+                  },
                 },
               }}
             />
           </div>
-          <ul className="list-disc pl-5">
+          <ul className="list-disc pl-5 space-y-1">
             {Object.entries(analysis.Peer_Comparison).map(([key, value]) => (
-              <li key={key} className="text-gray-300">
+              <li key={key} className="text-gray-300 text-sm sm:text-base">
                 <strong>{key.replace(/_/g, ' ')}:</strong> {value}
               </li>
             ))}

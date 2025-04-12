@@ -4,68 +4,84 @@ const LinkedInStatsDisplay = ({ data }) => {
   const { posts, summary } = data;
 
   return (
-    <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-6">
-      {/* Summary Stats */}
-      <div className="shadow rounded p-6 flex flex-col justify-center">
-        <h2 className="text-xl font-semibold mb-4 text-center">LinkedIn Summary</h2>
-        <div className="space-y-2 text-sm">
-          <p>Total Posts: {summary.total_posts}</p>
-          <p>Original Posts: {summary.original_posts}</p>
-          <p>Reposts: {summary.reposts}</p>
-          <p>Total Reactions: {summary.total_reactions}</p>
-          <p>Total Comments: {summary.total_comments}</p>
-          <p>Total Reposts (of posts): {summary.total_reposts}</p>
+    <div className="container mx-auto px-4 py-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        {/* Summary Stats */}
+        <div className="bg-gray-700 rounded-xl shadow-lg transition transform hover:scale-105 hover:shadow-2xl p-6 flex flex-col justify-center">
+          <h2 className="text-2xl font-semibold mb-4 text-center bg-gradient-to-r from-blue-500 to-blue-400 bg-clip-text text-transparent">
+            LinkedIn Summary
+          </h2>
+          <div className="space-y-2 text-gray-700 text-sm">
+            <p><span className="font-medium">Total Posts:</span> {summary.total_posts}</p>
+            <p><span className="font-medium">Original Posts:</span> {summary.original_posts}</p>
+            <p><span className="font-medium">Reposts:</span> {summary.reposts}</p>
+            <p><span className="font-medium">Total Reactions:</span> {summary.total_reactions}</p>
+            <p><span className="font-medium">Total Comments:</span> {summary.total_comments}</p>
+            <p><span className="font-medium">Total Reposts (of posts):</span> {summary.total_reposts}</p>
+          </div>
         </div>
-      </div>
 
-      {/* Engagement Averages */}
-      <div className="shadow rounded p-6 flex flex-col justify-center">
-        <h2 className="text-xl font-semibold mb-4 text-center">Engagement Stats</h2>
-        <div className="space-y-2 text-sm">
-          <p>Avg Reactions/Post: {summary.average_engagement_per_post.reactions}</p>
-          <p>Avg Comments/Post: {summary.average_engagement_per_post.comments}</p>
-          <p>Avg Reposts/Post: {summary.average_engagement_per_post.reposts}</p>
+        {/* Engagement Averages */}
+        <div className="bg-gray-700 rounded-xl shadow-lg transition transform hover:scale-105 hover:shadow-2xl p-6 flex flex-col justify-center">
+          <h2 className="text-2xl font-semibold mb-4 text-center bg-gradient-to-r from-purple-500 to-purple-400 bg-clip-text text-transparent">
+            Engagement Stats
+          </h2>
+          <div className="space-y-2 text-gray-700 text-sm">
+            <p><span className="font-medium">Avg Reactions/Post:</span> {summary.average_engagement_per_post.reactions}</p>
+            <p><span className="font-medium">Avg Comments/Post:</span> {summary.average_engagement_per_post.comments}</p>
+            <p><span className="font-medium">Avg Reposts/Post:</span> {summary.average_engagement_per_post.reposts}</p>
+          </div>
         </div>
-      </div>
 
-      {/* Post Frequency */}
-      <div className="shadow rounded p-6 flex flex-col justify-center">
-        <h2 className="text-xl font-semibold mb-4 text-center">Posting Frequency</h2>
-        <div className="space-y-2 text-sm">
-          <p>First Post Date: {summary.post_frequency.first_post_date}</p>
-          <p>Last Post Date: {summary.post_frequency.last_post_date}</p>
-          <p>Days Active: {summary.post_frequency.days_active}</p>
-          <p>Posts/Day: {summary.post_frequency.posts_per_day.toFixed(2)}</p>
-          <p>Posts/Week: {summary.post_frequency.posts_per_week.toFixed(2)}</p>
+        {/* Post Frequency */}
+        <div className="bg-gray-700 rounded-xl shadow-lg transition transform hover:scale-105 hover:shadow-2xl p-6 flex flex-col justify-center">
+          <h2 className="text-2xl font-semibold mb-4 text-center bg-gradient-to-r from-green-500 to-green-400 bg-clip-text text-transparent">
+            Posting Frequency
+          </h2>
+          <div className="space-y-2 text-gray-700 text-sm">
+            <p><span className="font-medium">First Post Date:</span> {summary.post_frequency.first_post_date}</p>
+            <p><span className="font-medium">Last Post Date:</span> {summary.post_frequency.last_post_date}</p>
+            <p><span className="font-medium">Days Active:</span> {summary.post_frequency.days_active}</p>
+            <p>
+              <span className="font-medium">Posts/Day:</span>{" "}
+              {summary.post_frequency.posts_per_day.toFixed(2)}
+            </p>
+            <p>
+              <span className="font-medium">Posts/Week:</span>{" "}
+              {summary.post_frequency.posts_per_week.toFixed(2)}
+            </p>
+          </div>
         </div>
       </div>
 
       {/* Recent Posts Table */}
-      <div className="shadow rounded p-6 col-span-1 md:col-span-2 xl:col-span-3">
-        <h2 className="text-xl font-semibold mb-4">Recent LinkedIn Posts</h2>
+      <div className="bg-gray-700 rounded-xl shadow-lg transition transform hover:scale-105 hover:shadow-2xl p-6 mt-6">
+        <h2 className="text-2xl font-semibold mb-4 text-center bg-gradient-to-r from-red-500 to-red-400 bg-clip-text text-transparent">
+          Recent LinkedIn Posts
+        </h2>
         <div className="overflow-x-auto">
-          <table className="min-w-full text-sm">
-            <thead>
-              <tr className="text-left border-b">
-                <th className="p-2">Date</th>
-                <th className="p-2">Author</th>
-                <th className="p-2">Repost?</th>
-                <th className="p-2">Reactions</th>
-                <th className="p-2">Comments</th>
-                <th className="p-2">Reposts</th>
+          <table className="min-w-full text-sm divide-y divide-gray-200">
+            <thead className="bg-gray-50">
+              <tr className="text-left">
+                <th className="p-3 font-medium text-gray-600">Date</th>
+                <th className="p-3 font-medium text-gray-600">Author</th>
+                <th className="p-3 font-medium text-gray-600">Repost?</th>
+                <th className="p-3 font-medium text-gray-600">Reactions</th>
+                <th className="p-3 font-medium text-gray-600">Comments</th>
+                <th className="p-3 font-medium text-gray-600">Reposts</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="divide-y divide-gray-100">
               {posts.map((post) => (
-                <tr key={post.post_id} className="border-b hover:bg-gray-800">
-                  <td className="p-2">{post.date}</td>
-                  <td className="p-2">{post.author}</td>
-                  <td className="p-2">
+                <tr key={post.post_id} className="hover:bg-gray-600">
+                  <td className="p-3">{post.date}</td>
+                  <td className="p-3">{post.author}</td>
+                  <td className="p-3">
                     {post.is_repost ? `Yes (by ${post.reposted_by})` : "No"}
                   </td>
-                  <td className="p-2">{post.reactions}</td>
-                  <td className="p-2">{post.comments}</td>
-                  <td className="p-2">{post.reposts}</td>
+                  <td className="p-3">{post.reactions}</td>
+                  <td className="p-3">{post.comments}</td>
+                  <td className="p-3">{post.reposts}</td>
                 </tr>
               ))}
             </tbody>
@@ -74,9 +90,11 @@ const LinkedInStatsDisplay = ({ data }) => {
       </div>
 
       {/* Engagement Visualization */}
-      <div className="shadow rounded p-6 col-span-1 md:col-span-2 xl:col-span-3">
-        <h2 className="text-xl font-semibold mb-4">Engagement Highlights</h2>
-        <div className="grid grid-cols-6 sm:grid-cols-12 gap-1">
+      <div className="bg-gray-700 rounded-xl shadow-lg transition transform hover:scale-105 hover:shadow-2xl p-6 mt-6">
+        <h2 className="text-2xl font-semibold mb-4 text-center bg-gradient-to-r from-yellow-500 to-yellow-400 bg-clip-text text-transparent">
+          Engagement Highlights
+        </h2>
+        <div className="grid grid-cols-6 sm:grid-cols-12 gap-2">
           {posts.map((post, i) => {
             const total = post.reactions + post.comments + post.reposts;
             const color =
@@ -90,13 +108,15 @@ const LinkedInStatsDisplay = ({ data }) => {
             return (
               <div
                 key={i}
-                className={`w-4 h-4 rounded ${color}`}
+                className={`w-4 h-4 rounded ${color} transition-all duration-300`}
                 title={`${post.date}: ${total} interactions`}
               ></div>
             );
           })}
         </div>
-        <p className="text-xs text-gray-500 mt-2">Color represents total engagement per post</p>
+        <p className="text-xs text-gray-500 mt-2 text-center">
+          Color represents total engagement per post
+        </p>
       </div>
     </div>
   );
