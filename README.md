@@ -1,4 +1,4 @@
-# 💼 DevHeat: AI-Powered Digital Profile Analyzer
+# 💼 DigiAnalyzer: AI-Powered Digital Profile Analyzer
 
 > 🚀 An intelligent platform to evaluate and enhance developer profiles by aggregating data from GitHub, LinkedIn, LeetCode, Codeforces, and CodeChef. This tool helps recruiters make informed decisions and developers optimize their digital presence.
 
@@ -222,7 +222,7 @@ The assistant evaluates a candidate's technical and professional presence across
 ## 🎥 Demo Video
 
 > 📺 Watch the walkthrough here:  
-![DevHeat Demo](https://youtu.be/Q09HCMFOjmY)
+[Project Demo Video](https://youtu.be/Q09HCMFOjmY)
 
 ---
 
@@ -236,8 +236,5 @@ The assistant evaluates a candidate's technical and professional presence across
 ## 📄 License
 
 [MIT License](LICENSE)
-
-
-Here’s a clean and structured Markdown snippet you can paste into your README file to document the parameters and evaluation criteria used by the system prompt:
 
 ---
