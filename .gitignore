@@ -6,11 +6,14 @@ test*
 plan*
 
 # Ignore markdown files
-*.md
+data.md
+plan.md
+test.md
 
 # Ignore environment files
 *.env
 
 # Specific files
 gpt.js
+Demo.mp4
 req.http
