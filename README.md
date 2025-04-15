@@ -142,7 +142,6 @@ npm run dev
 | `/api/analyze`     | POST   | Accepts usernames |
 | `/api/response`      | GET    | Get analyzed data          |
 | `/api`    | GET    | Landing page       |
-| ...                | ...    | ...                          |
 
 ---
 
